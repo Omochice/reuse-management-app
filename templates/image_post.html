@@ -1,0 +1,24 @@
+{% extends "layout.html" %} {% block content %}
+
+<form method="post" action="/post" enctype="multipart/form-data">
+  <input type="file" id="img_file" name="img_file[0]" accept="image/jpeg, image/png" required/>
+  <input type="file" id="img_file" name="img_file[1]" accept="image/jpeg, image/png"/>
+  <input type="file" id="img_file" name="img_file[2]" accept="image/jpeg, image/png"/>
+  <label>物品の名称:</label>
+  <input type="text" name="name" value="" required>
+  <label>物品のカテゴリ:</label>
+  <!-- <input type="text" name="category" value="" required> -->
+  <select name="category" size=1>
+      {% for k,v in category.items() %}
+      <option value="{{v}}">{{k}}</option>
+      {% endfor %}
+  </select>
+  <label>値段:</label>
+  <input type="number" name="price" value="" required>
+  <label>備考:</label>
+  <textarea name="description"></textarea>
+  <input type="submit" value="送信" class="btn" />
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<title></title>
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
+<link rel="shortcut icon" href="">
+</head>
+<body>
+    <main>
+        <div id="content">
+            {% for errmessage in errmessages %}
+                <p class="error">{{ errmessage }}</p>
+            {% endfor %}
+            {% block content %}
+            {% endblock %}
+        </div>
+        <nav>
+            {% if authenticateduser %}
+            <a href="/logout" style="color:white;">ログアウト</a>
+            {% endif %}
+        </nav>
+    </main>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends "layout.html" %} {% block content %}
+
+<form method="post" action="#" enctype="multipart/form-data">
+  <input type="hidden" name="_method" value="put">
+  {% for img in images %}
+  <img src="{{img.url}}" alt="{{img.id}}">
+  {% endfor %}
+  <label>物品の名称:</label>
+  <input type="text" name="name" value="{{item.name}}" required>
+  <label>物品のカテゴリ:</label>
+  <!-- <input type="text" name="category" value="" required> -->
+  <select name="category" size=1>
+      {% for k,v in category.items() %}
+      {% if v == item.category %}
+      <option value="{{v}}" selected>{{k}}</option>
+      {% else %}
+      <option value="{{v}}">{{k}}</option>
+      {% endif %}
+      {% endfor %}
+  </select>
+  <label>販売ステータス:</label>
+  <input type="radio" name="visiable" value="true" {% if item.visiable %} checked {% endif %}>販売中
+  <input type="radio" name="visiable" value="false" {% if not item.visiable %} checked {% endif %}>売約済み
+  <label>値段:</label>
+  <input type="number" name="price" value="{{item.price}}" required>
+  <label>備考:</label>
+  <textarea name="description">{{item.description}}</textarea>
+  <input type="submit" value="更新" class="btn" />
+</form>
+
+{% endblock %}

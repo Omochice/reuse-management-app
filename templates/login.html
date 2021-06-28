@@ -1,0 +1,21 @@
+{% extends "layout.html" %} {% block content %}
+
+<form id="loginForm" action="{{ login_url }} "method="post">
+  <h1 style="color: white">ログイン認証</h1>
+  <label>username:</label>
+  <input type="text" name="username" placeholder="username" value="" required />
+  <br />
+  <label>password:</label>
+  <input
+    type="password"
+    name="password"
+    placeholder="password"
+    value=""
+    required
+  />
+  <br />
+  <br />
+  <input type="submit" value="ログイン">
+</form>
+
+{% endblock %}
